@@ -1,0 +1,33 @@
+{
+  "name": "melisplatform/melis-platform-framework-symfony-demo-tool",
+  "type": "melisplatform-module",
+  "license": "OSL-3.0",
+  "homepage": "https://github.com/melisplatform/melis-platform-framework-symfony-demo-tool",
+  "support": {
+	"email": "contact@melistechnology.com",
+    "source": "https://github.com/melisplatform/melis-platform-framework-symfony-demo-tool",
+    "issues": "https://github.com/melisplatform/melis-platform-framework-symfony-demo-tool/issues",
+	"docs": "https://www.melistechnology.com/melistechnology/resources/download-documentation/id/17#documentation"
+  },
+  "authors": [
+	{
+		"name": "Melis Technology",
+		"email": "contact@melistechnology.com",
+		"homepage": "https://www.melistechnology.com",
+		"role": "Developer"
+	}
+  ],
+  "extra": {
+    "module-name": "MelisPlatformFrameworkSymfonyDemoTool",
+    "dbdeploy": true,
+    "melis-site": false,
+    "melis-module-category": "core"
+  },
+  "autoload": {
+    "psr-4": {
+      "MelisPlatformFrameworkSymfonyDemoTool\\": "src/"
+    }
+  },
+  "require": {
+  }
+}
