@@ -29,5 +29,7 @@
     }
   },
   "require": {
+    "php": "^7.0",
+    "melisplatform/melis-platform-framework-symfony-demo-tool-logic": "*"
   }
 }
