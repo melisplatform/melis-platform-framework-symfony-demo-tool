@@ -8,6 +8,11 @@
  */
 
 return array(
+    'third-party-framework' => [
+        'index-path' => [
+            '/symfony/public/index.php'
+        ]
+    ],
     'router' => array(
         'routes' => array(
             'melis-backoffice' => array(
