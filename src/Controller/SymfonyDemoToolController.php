@@ -14,8 +14,8 @@ class SymfonyDemoToolController extends AbstractActionController
     {
         $view = new ViewModel();
         $view->melisKey = $this->getMelisKey();
-        $this->serviceLocator->get('MelisDispatchThirdPartyService')->setRoute('/list');
-        $view->symfonyView = $this->serviceLocator->get('MelisDispatchThirdPartyService')->getContent();
+        $this->serviceLocator->get('MelisPlatformService')->setRoute('/list');
+        $view->symfonyView = $this->serviceLocator->get('MelisPlatformService')->getContent();
         return $view;
     }
 

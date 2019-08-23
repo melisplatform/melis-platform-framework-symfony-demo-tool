@@ -1,4 +1,4 @@
 <?php
     return array(
-        'tr_melis_code_example_symfony_name' => 'Symfony 4 Tool Demo',
+        'tr_melisplatform_framework_symfony_demo_tool_name' => 'Symfony 4 Tool Demo',
     );

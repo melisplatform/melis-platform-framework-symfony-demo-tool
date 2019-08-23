@@ -41,12 +41,9 @@
             'melisplatform_framework_symfony_demo' => [
                 'conf' => [
                     'id' => '',
-                    'name' => 'tr_melis_code_example_symfony_name',
+                    'name' => 'tr_melisplatform_framework_symfony_demo_tool_name',
                     'rightsDisplay' => 'none',
                 ],
-//                'datas' => [
-//                    'index_path' => 'symfony\public\index.php',
-//                ],
                 'ressources' => [
                     'js' => array(
                         '/MelisCodeExampleSymfony/js/album.js',
@@ -64,14 +61,13 @@
                             '/MelisCms/build/js/bundle.js',
                         ]
                     ]
-
                 ],
                 'interface' => [
                     'melisplatform_framework_symfony_demo_tool' => [
                         'conf' => [
-                            'id' => 'id_meliscodeexamplesymfony_tool',
-                            'melisKey' => 'meliscodeexamplesymfony_tool',
-                            'name' => 'tr_melis_code_example_symfony_name',
+                            'id' => 'id_melisplatform_framework_symfony_demo_tool',
+                            'melisKey' => 'melisplatform_framework_symfony_demo_tool',
+                            'name' => 'tr_melisplatform_framework_symfony_demo_tool_name',
                             'icon' => 'fa-dot-circle-o',
                         ],
                         'forward' => [
