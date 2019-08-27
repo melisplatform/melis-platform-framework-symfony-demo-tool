@@ -31,7 +31,7 @@
   "require": {
     "php": "^7.0",
     "melisplatform/melis-core": "*",
-    "melisplatform/melis-platform-framework-symfony-demo-tool-logic": "*"
+    "melisplatform/melis-platform-framework-symfony-demo-tool-logic": "dev-master"
   },
   "repositories": [
     {
