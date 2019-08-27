@@ -1,10 +1,10 @@
 # melis-platform-framework-symfony-demo-tool
 This demo tool has for goal to show how you can use the framework Symfony4 inside Melis Platform, so you're not locked on ZF.
 
-##Getting Started
+## Getting Started
 This instructions will get you a copy of the project up and running on your machine.
 
-###Prerequisites
+### Prerequisites
 You will need to install the following in order to have this module running.
 * melis-core
 * melis-platform-frameworks
@@ -13,7 +13,7 @@ You will need to install the following in order to have this module running.
 
 This will automatically be done when using composer.
 
-###Installing
+### Installing
 Run the composer command:
 
 ``composer require melisplatform/melis-platform-framework-symfony-demo-tool``
