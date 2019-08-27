@@ -29,6 +29,14 @@
     }
   },
   "require": {
-    "php": "^7.0"
-  }
+    "php": "^7.0",
+    "melisplatform/melis-core": "*",
+    "melisplatform/melis-platform-framework-symfony-demo-tool-logic": "*"
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/melisplatform/melis-platform-framework-symfony-demo-tool-logic"
+    }
+  ]
 }
