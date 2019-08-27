@@ -6,10 +6,10 @@ This instructions will get you a copy of the project up and running on your mach
 
 ### Prerequisites
 You will need to install the following in order to have this module running.
-* melis-core
-* melis-platform-frameworks
-* melis-platform-framework-symfony
-* melis-platform-framework-demo-tool-logic
+* melisplatform/melis-core
+* melisplatform/melis-platform-frameworks
+* melisplatform/melis-platform-framework-symfony
+* melisplatform/melis-platform-framework-demo-tool-logic
 
 This will automatically be done when using composer.
 
@@ -22,9 +22,9 @@ Run the composer command:
 
 * **Melis Technology** - [www.melistechnology.com](https://www.melistechnology.com/)
 
-See also the list of [contributors](https://github.com/melisplatform/melis-messenger/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/melisplatform/melis-platform-framework-symfony-demo-tool/contributors) who participated in this project.
 
 
 ## License
 
-This project is licensed under the OSL-3.0 License - see the [LICENSE.md](LICENSE.md)
+This project is licensed under the OSL-3.0 License - see the [LICENSE](LICENSE.md)
