@@ -27,4 +27,4 @@ See also the list of [contributors](https://github.com/melisplatform/melis-platf
 
 ## License
 
-This project is licensed under the OSL-3.0 License - see the [LICENSE](LICENSE.md)
+This project is licensed under the OSL-3.0 License - see the [LICENSE](LICENSE)
