@@ -16,7 +16,9 @@ This will automatically be done when using composer.
 ### Installing
 Run the composer command:
 
-``composer require melisplatform/melis-platform-framework-symfony-demo-tool``
+```
+composer require melisplatform/melis-platform-framework-symfony-demo-tool
+```
 
 ## Authors
 
