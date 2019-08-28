@@ -6,9 +6,6 @@ This instructions will get you a copy of the project up and running on your mach
 
 ### Prerequisites
 You will need to install the following in order to have this module running.
-* melisplatform/melis-core
-* melisplatform/melis-platform-frameworks
-* melisplatform/melis-platform-framework-symfony
 * melisplatform/melis-platform-framework-demo-tool-logic
 
 This will automatically be done when using composer.
