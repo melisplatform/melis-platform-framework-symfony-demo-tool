@@ -30,6 +30,6 @@
   },
   "require": {
     "php": "^7.0",
-    "melisplatform/melis-platform-framework-symfony-demo-tool-logic": "dev-master as 1.0"	  
+    "melisplatform/melis-platform-framework-symfony-demo-tool-logic": "dev-master"	  
   }
 }
