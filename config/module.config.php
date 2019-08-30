@@ -10,7 +10,7 @@
 return array(
     'third-party-framework' => [
         'index-path' => [
-            '/symfony/public/index.php'
+            '/Symfony/public/index.php'
         ]
     ],
     'router' => array(
