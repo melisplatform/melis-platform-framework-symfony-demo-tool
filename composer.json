@@ -19,9 +19,7 @@
   ],
   "extra": {
     "module-name": "MelisPlatformFrameworkSymfonyDemoTool",
-    "dbdeploy": true,
-    "melis-site": false,
-    "melis-module-category": "core"
+    "dbdeploy": true
   },
   "autoload": {
     "psr-4": {
