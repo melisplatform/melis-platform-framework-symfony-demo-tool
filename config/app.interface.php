@@ -68,7 +68,7 @@
                             'id' => 'id_melisplatform_framework_symfony_demo_tool',
                             'melisKey' => 'melisplatform_framework_symfony_demo_tool',
                             'name' => 'tr_melisplatform_framework_symfony_demo_tool_name',
-                            'icon' => 'fa-dot-circle-o',
+                            'icon' => 'fa fa-puzzle-piece',
                         ],
                         'forward' => [
                             'module' => 'MelisPlatformFrameworkSymfonyDemoTool',
