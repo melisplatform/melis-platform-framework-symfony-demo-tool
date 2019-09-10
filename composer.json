@@ -27,6 +27,6 @@
     }
   },
   "require": {
-    "melisplatform/melis-platform-framework-symfony-demo-tool-logic": "*"	  
+    "melisplatform/melis-platform-framework-symfony-demo-tool-logic": "^3.1"	  
   }
 }
