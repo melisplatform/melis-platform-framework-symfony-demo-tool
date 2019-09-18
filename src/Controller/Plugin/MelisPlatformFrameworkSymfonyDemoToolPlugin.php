@@ -53,11 +53,11 @@ class MelisPlatformFrameworkSymfonyDemoToolPlugin extends MelisTemplatingPlugin
     public function front()
     {
         $this->getServiceLocator()->get('MelisPlatformService')->setRoute('/symfony-plugin');
-        $albumTable = $this->getServiceLocator()->get('MelisPlatformService')->getContent();
+        $albumListContent = $this->getServiceLocator()->get('MelisPlatformService')->getContent();
 
         // Create an array with the variables that will be available in the view
         $viewVariables = array(
-            'albumList' => $albumTable,
+            'albumList' => $albumListContent,
         );
 
         return $viewVariables;
