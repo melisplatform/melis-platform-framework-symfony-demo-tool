@@ -1,0 +1,37 @@
+<?php
+
+return array(
+    'plugins' => array(
+        'melisplatformframeworksymfonydemotool' => array(
+            'conf' => array(
+                // user rights exclusions
+                'rightsDisplay' => 'none',
+            ),
+            'plugins' => array(
+                'MelisPlatformFrameworkSymfonyDemoToolPlugin' => array(
+                    'front' => array(
+                        'template_path' => array('DemoTool/SymfonyPlugin'),
+                        'id' => 'tag-demoToolPlugin',
+                    ),
+                    'melis' => array(
+                        'section' => 'CustomProjects',
+                        'subcategory' => array(
+                            'id' => 'thirdPartyFrameworks',
+                            'title' => 'Frameworks'
+                        ),
+                        'name' => 'tr_MelisPlatformFrameworkSymfonyDemoToolPlugin_Name',
+                        'thumbnail' => '/MelisPlatformFrameworkSymfonyDemoTool/plugins/images/MelisPlatformFrameworkSymfonyDemoToolPlugin_thumb.jpg',
+                        'description' => 'tr_MelisPlatformFrameworkSymfonyDemoToolPlugin_Description',
+                        'files' => array(
+                            'css' => array(
+                            ),
+                            'js' => array(
+                            ),
+                        ),
+                        'js_initialization' => array(),
+                    ),
+                ),
+            )
+        )
+    )
+);

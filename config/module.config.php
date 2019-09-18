@@ -53,12 +53,18 @@ return array(
             'MelisPlatformFrameworkSymfonyDemoTool\Controller\SymfonyDemoTool' => 'MelisPlatformFrameworkSymfonyDemoTool\Controller\SymfonyDemoToolController',
         ),
     ),
+    'controller_plugins' => array(
+        'invokables' => array(
+            'MelisPlatformFrameworkSymfonyDemoToolPlugin' => 'MelisPlatformFrameworkSymfonyDemoTool\Controller\Plugin\MelisPlatformFrameworkSymfonyDemoToolPlugin',
+        )
+    ),
     'view_manager' => array(
         'display_not_found_reason' => true,
         'display_exceptions'       => true,
         'doctype'                  => 'HTML5',
         'template_map' => array(
             'layout/layout'             => __DIR__ . '/../view/layout/default.phtml',
+            'DemoTool/SymfonyPlugin'    => __DIR__ . '/../view/melis-platform-framework-symfony-demo-tool/plugins/render-symfony-demo-tool-plugin.phtml',
         ),
         'template_path_stack' => array(
             __DIR__ . '/../view',
