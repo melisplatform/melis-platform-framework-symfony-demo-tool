@@ -46,7 +46,7 @@
                 ],
                 'ressources' => [
                     'js' => array(
-                        '/MelisCodeExampleSymfony/js/album.js',
+
                     ),
                     'css' => array(
 
