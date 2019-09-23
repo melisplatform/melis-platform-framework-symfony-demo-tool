@@ -5,4 +5,5 @@
         'tr_MelisPlatformFrameworkSymfonyDemoToolPlugin_Description' => 'This plugin displays content requested from Symfony.',
 
         'tr_MelisPlatformFrameworkSymfonyDemoToolPlugin_empty_parameters' => 'No parameters to edit',
+        'tr_MelisPlatformFrameworkSymfonyDemoToolPlugin_tab_properties' => 'Properties',
     );
