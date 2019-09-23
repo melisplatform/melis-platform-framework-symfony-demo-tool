@@ -26,7 +26,7 @@ class Module
 			include __DIR__ . '/../config/app.interface.php',
 
             //demo tool templating plugin
-            include __DIR__ . '/../config/plugins/MelisPlatformFrameworkSymfonyDemoToolPlugin.config.phtml',
+            include __DIR__ . '/../config/plugins/SymfonyDemoToolPlugin.config.phtml',
     	);
     	
     	foreach ($configFiles as $file) {

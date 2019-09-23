@@ -4,7 +4,6 @@ namespace MelisPlatformFrameworkSymfonyDemoTool\Controller\Plugin;
 
 
 use MelisEngine\Controller\Plugin\MelisTemplatingPlugin;
-use Zend\View\Model\ViewModel;
 
 /**
  * This plugin implements the business logic of the
@@ -22,11 +21,11 @@ use Zend\View\Model\ViewModel;
  * Merge detects automatically from the route if rendering must be done for front or back.
  *
  * How to call this plugin without parameters:
- * $plugin = $this->MelisPlatformFrameworkSymfonyDemoToolPlugin();
+ * $plugin = $this->SymfonyDemoToolPlugin();
  * $pluginView = $plugin->render();
  *
  * How to call this plugin with custom parameters:
- * $plugin = $this->MelisPlatformFrameworkSymfonyDemoToolPlugin();
+ * $plugin = $this->SymfonyDemoToolPlugin();
  * $parameters = array(
  *      'template_path' => 'MySiteTest/tag/tag'
  * );
@@ -40,7 +39,7 @@ use Zend\View\Model\ViewModel;
  *
  *
  */
-class MelisPlatformFrameworkSymfonyDemoToolPlugin extends MelisTemplatingPlugin
+class SymfonyDemoToolPlugin extends MelisTemplatingPlugin
 {
     public function __construct($updatesPluginConfig = [])
     {
@@ -55,12 +54,53 @@ class MelisPlatformFrameworkSymfonyDemoToolPlugin extends MelisTemplatingPlugin
         $this->getServiceLocator()->get('MelisPlatformService')->setRoute('/symfony-plugin');
         $albumListContent = $this->getServiceLocator()->get('MelisPlatformService')->getContent();
 
+        $data = $this->getFormData();
+
         // Create an array with the variables that will be available in the view
         $viewVariables = array(
+            'pluginId'      => $data['id'],
             'albumList' => $albumListContent,
         );
 
         return $viewVariables;
+    }
+
+    /**
+     * @return array|bool|null
+     */
+    public function getFormData()
+    {
+        return parent::getFormData();
+    }
+
+    /**
+     * This method saves the XML version of this plugin in DB, for this pageId
+     * Automatically called from savePageSession listener in PageEdition
+     */
+    public function savePluginConfigToXml($parameters)
+    {
+        $xmlValueFormatted = '';
+        // template_path is mandatory for all plugins
+        if (!empty($parameters['template_path']))
+            $xmlValueFormatted .= "\t\t" . '<template_path><![CDATA[' . $parameters['template_path'] . ']]></template_path>';
+        // for resizing
+        $widthDesktop = null;
+        $widthMobile   = null;
+        $widthTablet  = null;
+        if (! empty($parameters['melisPluginDesktopWidth'])) {
+            $widthDesktop =  " width_desktop=\"" . $parameters['melisPluginDesktopWidth'] . "\" ";
+        }
+        if (! empty($parameters['melisPluginMobileWidth'])) {
+            $widthMobile =  "width_mobile=\"" . $parameters['melisPluginMobileWidth'] . "\" ";
+        }
+        if (! empty($parameters['melisPluginTabletWidth'])) {
+            $widthTablet =  "width_tablet=\"" . $parameters['melisPluginTabletWidth'] . "\" ";
+        }
+        // Something has been saved, let's generate an XML for DB
+        $xmlValueFormatted = "\t" . '<' . $this->pluginXmlDbKey . ' id="' . $parameters['melisPluginId'] . '"' .$widthDesktop . $widthMobile . $widthTablet . '>' .
+            $xmlValueFormatted .
+            "\t" . '</' . $this->pluginXmlDbKey . '>' . "\n";
+        return $xmlValueFormatted;
     }
 }
 

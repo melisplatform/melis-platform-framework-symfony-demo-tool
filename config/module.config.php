@@ -55,7 +55,7 @@ return array(
     ),
     'controller_plugins' => array(
         'invokables' => array(
-            'MelisPlatformFrameworkSymfonyDemoToolPlugin' => 'MelisPlatformFrameworkSymfonyDemoTool\Controller\Plugin\MelisPlatformFrameworkSymfonyDemoToolPlugin',
+            'SymfonyDemoToolPlugin' => 'MelisPlatformFrameworkSymfonyDemoTool\Controller\Plugin\SymfonyDemoToolPlugin',
         )
     ),
     'view_manager' => array(
