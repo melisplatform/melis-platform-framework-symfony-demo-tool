@@ -4,6 +4,7 @@ namespace MelisPlatformFrameworkSymfonyDemoTool\Controller\Plugin;
 
 
 use MelisEngine\Controller\Plugin\MelisTemplatingPlugin;
+use Zend\View\Model\ViewModel;
 
 /**
  * This plugin implements the business logic of the
@@ -63,6 +64,42 @@ class SymfonyDemoToolPlugin extends MelisTemplatingPlugin
         );
 
         return $viewVariables;
+    }
+
+    /**
+     * This function generates the form displayed when editing the parameters of the plugin
+     */
+    public function createOptionsForms()
+    {
+        // construct form
+        $formConfig = $this->pluginBackConfig['modal_form'];
+
+        $render   = [];
+        if (!empty($formConfig)) {
+            foreach ($formConfig as $formKey => $config) {
+                $request = $this->getServiceLocator()->get('request');
+                $parameters = $request->getQuery()->toArray();
+
+                if (!isset($parameters['validate'])) {
+                    $viewModelTab = new ViewModel();
+                    $viewModelTab->setTemplate($config['tab_form_layout']);
+
+                    $viewRender = $this->getServiceLocator()->get('ViewRenderer');
+                    $html = $viewRender->render($viewModelTab);
+                    array_push($render, [
+                            'name' => $config['tab_title'],
+                            'icon' => $config['tab_icon'],
+                            'html' => $html,
+                            //to hide the apply button of the modal
+                            'empty' => 'empty'
+                        ]
+                    );
+                }
+            }
+        }
+
+        return $render;
+
     }
 
     /**

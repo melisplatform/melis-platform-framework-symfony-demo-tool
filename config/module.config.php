@@ -65,6 +65,7 @@ return array(
         'template_map' => array(
             'layout/layout'             => __DIR__ . '/../view/layout/default.phtml',
             'DemoTool/SymfonyPlugin'    => __DIR__ . '/../view/melis-platform-framework-symfony-demo-tool/plugins/render-symfony-demo-tool-plugin.phtml',
+            'DemoTool/ModalFormTemplate'    => __DIR__ . '/../view/melis-platform-framework-symfony-demo-tool/plugins/modal_form_template.phtml',
         ),
         'template_path_stack' => array(
             __DIR__ . '/../view',
