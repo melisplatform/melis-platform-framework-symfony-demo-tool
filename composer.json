@@ -19,7 +19,9 @@
   ],
   "extra": {
     "module-name": "MelisPlatformFrameworkSymfonyDemoTool",
-    "dbdeploy": true
+    "dbdeploy": true,
+    "melis-site": false,
+    "melis-module-category": "core"
   },
   "autoload": {
     "psr-4": {
@@ -27,6 +29,8 @@
     }
   },
   "require": {
-    "melisplatform/melis-platform-framework-symfony-demo-tool-logic": "^3.1"	  
+    "melisplatform/melis-platform-frameworks": "*",
+    "melisplatform/melis-platform-framework-symfony": "*",
+    "melisplatform/melis-platform-framework-symfony-demo-tool-logic": "*"
   }
 }
