@@ -45,12 +45,12 @@
                     'rightsDisplay' => 'none',
                 ],
                 'ressources' => [
-                    'js' => array(
+                    'js' => [
 
-                    ),
-                    'css' => array(
+                    ],
+                    'css' => [
 
-                    ),
+                    ],
                     /**
                      * the "build" configuration compiles all assets into one file to make
                      * lesser requests
@@ -58,7 +58,10 @@
                     'build' => [
                         'disable_bundle' => true,
                         'js' => [
-                            '/MelisCms/build/js/bundle.js',
+
+                        ],
+                        'css' => [
+
                         ]
                     ]
                 ],
