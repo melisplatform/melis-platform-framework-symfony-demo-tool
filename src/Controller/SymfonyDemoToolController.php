@@ -20,6 +20,37 @@ class SymfonyDemoToolController extends AbstractActionController
     }
 
     /**
+     * @return ViewModel
+     */
+    public function renderAlbumModalHandlerAction()
+    {
+        $id = $this->params()->fromRoute('id', $this->params()->fromQuery('id', ''));
+        $view = new ViewModel();
+        $view->melisKey = $this->getMelisKey();
+        $view->id = $id;
+        return $view;
+    }
+
+    /**
+     * @return ViewModel
+     */
+    public function renderAlbumModalAction()
+    {
+        $view = new ViewModel();
+        /**
+         * get the form from
+         * the symfony
+         */
+        $albumId = $this->params()->fromQuery('id', $this->params()->fromQuery('album_id', 0));
+        $this->serviceLocator->get('MelisPlatformService')->setRoute('/melis/create-form/'.$albumId);
+        $view->form = $this->serviceLocator->get('MelisPlatformService')->getContent();
+
+        $view->melisKey  = $this->getMelisKey();
+        $view->albumId = $albumId;
+        return $view;
+    }
+
+    /**
      * returns meliskey from route or from query
      * @return mixed
      */
