@@ -4,13 +4,16 @@ $(document).ready(function(){
 
     $body.on("click", ".symfony-demo-tool .btn_update", function(){
         albumId = $(this).parents("tr").attr("id");
-        var modalUrl = "/melis/MelisPlatformFrameworkSymfonyDemoTool/SymfonyDemoTool/renderAlbumModalHandler";
-        melisHelper.createModal('id_melisplatform_framework_symfony_demo_tool_modal', 'melisplatform_framework_symfony_demo_tool_modal', true, {'album_id': albumId}, modalUrl, function () {});
+        // var modalUrl = "/melis/MelisPlatformFrameworkSymfonyDemoTool/SymfonyDemoTool/renderAlbumModalHandler";
+        // melisHelper.createModal('id_melisplatform_framework_symfony_demo_tool_modal', 'melisplatform_framework_symfony_demo_tool_modal', true, {'album_id': albumId}, modalUrl, function () {});
+        renderModal("/melis/get-form/"+albumId);
     });
 
     $body.on("click", ".symfony-demo-tool #btn-new-album", function(){
-        var modalUrl = "/melis/MelisPlatformFrameworkSymfonyDemoTool/SymfonyDemoTool/renderAlbumModalHandler";
-        melisHelper.createModal('id_melisplatform_framework_symfony_demo_tool_modal', 'melisplatform_framework_symfony_demo_tool_modal', true, {}, modalUrl, function () {});
+        albumId = null;
+        // var modalUrl = "/melis/MelisPlatformFrameworkSymfonyDemoTool/SymfonyDemoTool/renderAlbumModalHandler";
+        // melisHelper.createModal('id_melisplatform_framework_symfony_demo_tool_modal', 'melisplatform_framework_symfony_demo_tool_modal', true, {}, modalUrl, function () {});
+        renderModal("/melis/get-form");
     });
 
     $body.on("click", "#btn-save-album", function(){
@@ -36,7 +39,10 @@ $(document).ready(function(){
 
                     },
                     success: function(data){
+                        // update flash messenger values
+                        melisCore.flashMessenger();
                         data = $.parseJSON(data);
+
                         if(data.success){
                             melisHelper.melisOkNotification(data.title, data.message);
                             //refresh site table
@@ -63,16 +69,70 @@ $(document).ready(function(){
                 $("#btn-save-album").attr("disabled", true);
             },
             success: function(data){
+                // update flash messenger values
+                melisCore.flashMessenger();
+
                 data = $.parseJSON(data);
                 if(data.success) {
-                    $("#id_melisplatform_framework_symfony_demo_tool_modal_container").modal("hide");
+                    $("#symfonyDemoToolAlbumModal").modal("hide");
                     melisHelper.melisOkNotification(data.title, data.message);
                     //refresh site table
                     $("#tableSymfonyDemoTool").DataTable().ajax.reload();
+                    //assign null to album id
+                    albumId = null;
                 }else{
                     melisHelper.melisKoNotification(data.title, data.message, data.errors);
+                    melisCoreTool.highlightErrors(data.success, data.errors, "album_form");
                 }
                 $("#btn-save-album").attr("disabled", false);
+            }
+        });
+    }
+
+    /**
+     *
+     * @param url
+     */
+    function renderModal(url)
+    {
+        var modal = $("#symfonyDemoToolAlbumModal");
+        modal.modal('show');
+        $.ajax({
+            url: url,
+            method: "GET",
+            beforeSend: function(){
+                /**
+                 * Lets show a loader while waiting for the ajax to get
+                 * the content
+                 */
+                modal.find(".modal-content #loader").removeClass('hidden');
+                modal.find(".modal-content .modal-body").addClass('hidden');
+                /**
+                 * we need to modify a little bit the modal to
+                 * like changing the text and icon of the header to
+                 * determine whether we are going to update or
+                 * create a record since we are using one
+                 * modal for both update and create
+                 */
+                var title =  modal.find("li.active").find("a");
+                if(albumId == null){
+                    title.removeClass("edit").addClass("plus");
+                    title.find("p.modal-tab-title").text("Create");
+                }else{
+                    title.removeClass("plus").addClass("edit");
+                    title.find("p.modal-tab-title").text("Update");
+                }
+            },
+            success: function(data){
+                /**
+                 * Hide the load and show the content
+                 */
+                modal.find(".modal-content #loader").addClass('hidden');
+                modal.find(".modal-content .modal-body").removeClass('hidden');
+                /**
+                 * Replace the content of the modal
+                 */
+                modal.find(".tab-content .active").html(data);
             }
         });
     }

@@ -49,7 +49,7 @@
                         'MelisPlatformFrameworkSymfonyDemoTool/js/symfonyDemoTool.js',
                     ],
                     'css' => [
-
+                        'MelisPlatformFrameworkSymfonyDemoTool/css/symfony-demo-tool.css',
                     ],
                     /**
                      * the "build" configuration compiles all assets into one file to make
@@ -79,36 +79,6 @@
                             'action' => 'render-symfony-demo-tool',
                             'jscallback' => '',
                             'jsdatas' => [],
-                        ],
-                    ],
-                    'melisplatform_framework_symfony_demo_tool_modal_handler' => [
-                        'conf' => [
-                            'id' => 'id_melisplatform_framework_symfony_demo_tool_modal_handler',
-                            'name' => 'Edit Album',
-                            'melisKey' => 'melisplatform_framework_symfony_demo_tool_modal_handler',
-                        ],
-                        'forward' => [
-                            'module' => 'MelisPlatformFrameworkSymfonyDemoTool',
-                            'controller' => 'SymfonyDemoTool',
-                            'action' => 'render-album-modal-handler',
-                            'jscallback' => '',
-                            'jsdatas' => []
-                        ],
-                        'interface' => [
-                            'melisplatform_framework_symfony_demo_tool_modal' => [
-                                'conf' => [
-                                    'id'   => 'id_melisplatform_framework_symfony_demo_tool_modal',
-                                    'name' => 'Edit',
-                                    'melisKey' => 'melisplatform_framework_symfony_demo_tool_modal',
-                                ],
-                                'forward' => [
-                                    'module' => 'MelisPlatformFrameworkSymfonyDemoTool',
-                                    'controller' => 'SymfonyDemoTool',
-                                    'action' => 'render-album-modal',
-                                    'jscallback' => '',
-                                    'jsdatas' => []
-                                ],
-                            ],
                         ],
                     ],
                 ],
