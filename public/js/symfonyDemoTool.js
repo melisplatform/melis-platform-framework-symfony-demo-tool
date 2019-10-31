@@ -2,20 +2,25 @@ $(document).ready(function(){
     var $body = $('body');
     var albumId = null;
 
-    $body.on("click", ".symfony-demo-tool .btn_update", function(){
+    /**
+     * Open modal to update record
+     */
+    $body.on("click", ".symfony-demo-tool #btn-update-album", function(){
         albumId = $(this).parents("tr").attr("id");
-        // var modalUrl = "/melis/MelisPlatformFrameworkSymfonyDemoTool/SymfonyDemoTool/renderAlbumModalHandler";
-        // melisHelper.createModal('id_melisplatform_framework_symfony_demo_tool_modal', 'melisplatform_framework_symfony_demo_tool_modal', true, {'album_id': albumId}, modalUrl, function () {});
         renderModal("/melis/get-form/"+albumId);
     });
 
+    /**
+     * Open modal to add new record
+     */
     $body.on("click", ".symfony-demo-tool #btn-new-album", function(){
         albumId = null;
-        // var modalUrl = "/melis/MelisPlatformFrameworkSymfonyDemoTool/SymfonyDemoTool/renderAlbumModalHandler";
-        // melisHelper.createModal('id_melisplatform_framework_symfony_demo_tool_modal', 'melisplatform_framework_symfony_demo_tool_modal', true, {}, modalUrl, function () {});
         renderModal("/melis/get-form");
     });
 
+    /**
+     * Save album
+     */
     $body.on("click", "#btn-save-album", function(){
         if(albumId == null)
             saveAlbum("/melis/save-album");
@@ -23,7 +28,10 @@ $(document).ready(function(){
             saveAlbum("/melis/save-album/"+albumId);
     });
 
-    $body.on("click", ".symfony-demo-tool .btn_delete", function(){
+    /**
+     * Delete album
+     */
+    $body.on("click", ".symfony-demo-tool #btn-delete-album", function(){
         var _this = $(this);
         melisCoreTool.confirm(
             translations.tr_meliscore_common_yes,
@@ -45,7 +53,7 @@ $(document).ready(function(){
 
                         if(data.success){
                             melisHelper.melisOkNotification(data.title, data.message);
-                            //refresh site table
+                            //refresh table
                             $("#tableSymfonyDemoTool").DataTable().ajax.reload();
                         }else{
                             melisHelper.melisKoNotification(data.title, data.message);
@@ -66,7 +74,10 @@ $(document).ready(function(){
             data: $("#album_form").serializeArray(),
             method: "POST",
             beforeSend: function(){
+                //disable button
                 $("#btn-save-album").attr("disabled", true);
+                //disable all fields
+                $("#album_form :input").prop("disabled", true);
             },
             success: function(data){
                 // update flash messenger values
@@ -76,15 +87,18 @@ $(document).ready(function(){
                 if(data.success) {
                     $("#symfonyDemoToolAlbumModal").modal("hide");
                     melisHelper.melisOkNotification(data.title, data.message);
-                    //refresh site table
+                    //refresh table
                     $("#tableSymfonyDemoTool").DataTable().ajax.reload();
-                    //assign null to album id
+                    //assign null to album id after saving/updating record
                     albumId = null;
                 }else{
                     melisHelper.melisKoNotification(data.title, data.message, data.errors);
-                    melisCoreTool.highlightErrors(data.success, data.errors, "album_form");
+                    melisCoreTool.highlightErrors(0, data.errors, "album_form");
                 }
+                //enable save button
                 $("#btn-save-album").attr("disabled", false);
+                //enable form fields
+                $("#album_form :input").prop("disabled", false);
             }
         });
     }
@@ -108,7 +122,7 @@ $(document).ready(function(){
                 modal.find(".modal-content #loader").removeClass('hidden');
                 modal.find(".modal-content .modal-body").addClass('hidden');
                 /**
-                 * we need to modify a little bit the modal to
+                 * we need to modify a little bit the modal
                  * like changing the text and icon of the header to
                  * determine whether we are going to update or
                  * create a record since we are using one
