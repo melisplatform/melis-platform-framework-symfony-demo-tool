@@ -131,10 +131,12 @@ $(document).ready(function(){
                 var title =  modal.find("li.active").find("a");
                 if(albumId == null){
                     title.removeClass("edit").addClass("plus");
-                    title.find("p.modal-tab-title").text("Create");
+                                                        //use translation inside melis-core
+                    title.find("p.modal-tab-title").text(translations.tr_meliscore_tool_gen_new);
                 }else{
                     title.removeClass("plus").addClass("edit");
-                    title.find("p.modal-tab-title").text("Update");
+                                                        //use translation inside melis-core
+                    title.find("p.modal-tab-title").text(translations.tr_meliscore_common_update);
                 }
             },
             success: function(data){

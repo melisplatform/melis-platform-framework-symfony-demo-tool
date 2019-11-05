@@ -46,22 +46,22 @@
                 ],
                 'ressources' => [
                     'js' => [
-                        'MelisPlatformFrameworkSymfonyDemoTool/js/symfonyDemoTool.js',
+                        '/MelisPlatformFrameworkSymfonyDemoTool/js/symfonyDemoTool.js',
                     ],
                     'css' => [
-                        'MelisPlatformFrameworkSymfonyDemoTool/css/symfony-demo-tool.css',
+                        '/MelisPlatformFrameworkSymfonyDemoTool/css/symfony-demo-tool.css',
                     ],
                     /**
                      * the "build" configuration compiles all assets into one file to make
                      * lesser requests
                      */
                     'build' => [
-                        'disable_bundle' => true,
+                        'disable_bundle' => false,
                         'js' => [
-
+                            '/MelisPlatformFrameworkSymfonyDemoTool/build/js/bundle.js',
                         ],
                         'css' => [
-
+                            '/MelisPlatformFrameworkSymfonyDemoTool/build/css/bundle.css',
                         ]
                     ]
                 ],
