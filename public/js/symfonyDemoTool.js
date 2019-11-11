@@ -34,10 +34,10 @@ $(document).ready(function(){
     $body.on("click", ".symfony-demo-tool #btn-delete-album", function(){
         var _this = $(this);
         melisCoreTool.confirm(
-            translations.tr_meliscore_common_yes,
-            translations.tr_meliscore_common_no,
-            translations.tr_MelisPlatformFrameworkSymfonyDemoToolPlugin_delete_album_title,
-            translations.tr_MelisPlatformFrameworkSymfonyDemoToolPlugin_delete_album_message,
+            translations.tool_confirm_modal_yes,
+            translations.tool_confirm_modal_no,
+            translations.tool_confirm_modal_title,
+            translations.tool_confirm_modal_message,
             function() {
                 $.ajax({
                     url: "/melis/delete-album",
@@ -131,12 +131,10 @@ $(document).ready(function(){
                 var title =  modal.find("li.active").find("a");
                 if(albumId == null){
                     title.removeClass("edit").addClass("plus");
-                                                        //use translation inside melis-core
-                    title.find("p.modal-tab-title").text(translations.tr_meliscore_tool_gen_new);
+                    title.find("p.modal-tab-title").text(translations.tool_add_album);
                 }else{
                     title.removeClass("plus").addClass("edit");
-                                                        //use translation inside melis-core
-                    title.find("p.modal-tab-title").text(translations.tr_meliscore_common_update);
+                    title.find("p.modal-tab-title").text(translations.tool_update_album);
                 }
             },
             success: function(data){

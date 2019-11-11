@@ -6,7 +6,4 @@
 
         'tr_MelisPlatformFrameworkSymfonyDemoToolPlugin_empty_parameters' => 'Aucun paramètre à éditer',
         'tr_MelisPlatformFrameworkSymfonyDemoToolPlugin_tab_properties' => 'Propriétés',
-
-        'tr_MelisPlatformFrameworkSymfonyDemoToolPlugin_delete_album_title' => 'Delete album',
-        'tr_MelisPlatformFrameworkSymfonyDemoToolPlugin_delete_album_message' => 'Etes-vous sûr de vouloir supprimer cette album?',
     );
