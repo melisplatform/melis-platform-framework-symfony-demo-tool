@@ -11,6 +11,12 @@ return array(
     'third-party-framework' => [
         'index-path' => [
             '/Symfony/public/index.php'
+        ],
+        //Include symfony translations so that we can access it in Melis Platform
+        'translations' => [
+            'files' => [
+                __DIR__ .'/../../melis-platform-framework-symfony/Resources/translations/melis/symfony-translations.phtml'
+            ],
         ]
     ],
     'router' => array(
