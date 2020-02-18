@@ -111,47 +111,50 @@ $(function() {
         function renderModal(url) {
             var modal = $("#symfonyDemoToolAlbumModal");
 
-                modal.modal('show');
-                
-                $.ajax({
-                    url: url,
-                    method: "GET",
-                    beforeSend: function(){
-                        /**
-                         * Lets show a loader while waiting for the ajax to get
-                         * the content
-                         */
-                        modal.find(".modal-content #loader").removeClass('hidden');
-                        modal.find(".modal-content .modal-body").addClass('hidden');
-                        /**
-                         * we need to modify a little bit the modal
-                         * like changing the text and icon of the header to
-                         * determine whether we are going to update or
-                         * create a record since we are using one
-                         * modal for both update and create
-                         */
-                        var title =  modal.find("li.active").find("a");
-                            if ( albumId == null ) {
-                                title.removeClass("edit").addClass("plus");
-                                title.find("p.modal-tab-title").text(translations.tool_add_album);
-                            }
-                            else {
-                                title.removeClass("plus").addClass("edit");
-                                title.find("p.modal-tab-title").text(translations.tool_update_album);
-                            }
-                    }
-                }).done(function(data) {
+            modal.modal('show');
+
+            $.ajax({
+                url: url,
+                method: "GET",
+                beforeSend: function(){
                     /**
-                     * Hide the load and show the content
+                     * Lets show a loader while waiting for the ajax to get
+                     * the content
                      */
-                    modal.find(".modal-content #loader").addClass('hidden');
-                    modal.find(".modal-content .modal-body").removeClass('hidden');
+                    modal.find(".modal-content #loader").removeClass('hidden');
+                    modal.find(".modal-content .modal-body").addClass('hidden');
                     /**
-                     * Replace the content of the modal
+                     * we need to modify a little bit the modal
+                     * like changing the text and icon of the header to
+                     * determine whether we are going to update or
+                     * create a record since we are using one
+                     * modal for both update and create
                      */
-                    modal.find(".tab-content .active").html(data);
-                }).fail(function() {
-                    alert( translations.tr_meliscore_error_message );
+                    var title =  modal.find("li.active").find("a");
+                        if ( albumId == null ) {
+                            title.removeClass("edit").addClass("plus");
+                            title.find("p.modal-tab-title").text(translations.tool_add_album);
+                        }
+                        else {
+                            title.removeClass("plus").addClass("edit");
+                            title.find("p.modal-tab-title").text(translations.tool_update_album);
+                        }
+                }
+            }).done(function(data) {
+                /**
+                 * Hide the load and show the content
+                 */
+                modal.find(".modal-content #loader").addClass('hidden');
+                modal.find(".modal-content .modal-body").removeClass('hidden');
+                /**
+                 * Replace the content of the modal
+                 */
+                data = $.parseJSON(data);
+                $.each(data, function(key, content){
+                    modal.find(".tab-content #"+key).html(content);
                 });
+            }).fail(function() {
+                alert( translations.tr_meliscore_error_message );
+            });
         }
 });
