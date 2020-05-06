@@ -2,8 +2,8 @@
 
 namespace MelisPlatformFrameworkSymfonyDemoTool\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
+use Laminas\View\Model\ViewModel;
+use MelisCore\Controller\AbstractActionController;
 
 class SymfonyDemoToolController extends AbstractActionController
 {
@@ -14,8 +14,8 @@ class SymfonyDemoToolController extends AbstractActionController
     {
         $view = new ViewModel();
         $view->melisKey = $this->getMelisKey();
-        $this->serviceLocator->get('MelisPlatformService')->setRoute('/melis/symfony-list');
-        $view->symfonyView = $this->serviceLocator->get('MelisPlatformService')->getContent();
+        $this->getServiceManager()->get('MelisPlatformService')->setRoute('/melis/symfony-list');
+        $view->symfonyView = $this->getServiceManager()->get('MelisPlatformService')->getContent();
         return $view;
     }
 
