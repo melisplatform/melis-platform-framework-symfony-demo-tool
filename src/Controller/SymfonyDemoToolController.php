@@ -3,9 +3,9 @@
 namespace MelisPlatformFrameworkSymfonyDemoTool\Controller;
 
 use Laminas\View\Model\ViewModel;
-use MelisCore\Controller\AbstractActionController;
+use MelisCore\Controller\MelisAbstractActionController;
 
-class SymfonyDemoToolController extends AbstractActionController
+class SymfonyDemoToolController extends MelisAbstractActionController
 {
     /**
      * @return \Zend\View\Model\ViewModel
