@@ -4,7 +4,7 @@ namespace MelisPlatformFrameworkSymfonyDemoTool\Controller\Plugin;
 
 
 use MelisEngine\Controller\Plugin\MelisTemplatingPlugin;
-use Zend\View\Model\ViewModel;
+use Laminas\View\Model\ViewModel;
 
 /**
  * This plugin implements the business logic of the
@@ -52,8 +52,8 @@ class SymfonyDemoToolPlugin extends MelisTemplatingPlugin
 
     public function front()
     {
-        $this->getServiceLocator()->get('MelisPlatformService')->setRoute('/symfony-plugin');
-        $albumListContent = $this->getServiceLocator()->get('MelisPlatformService')->getContent();
+        $this->getServiceManager()->get('MelisPlatformService')->setRoute('/symfony-plugin');
+        $albumListContent = $this->getServiceManager()->get('MelisPlatformService')->getContent();
 
         $data = $this->getFormData();
 
@@ -77,14 +77,14 @@ class SymfonyDemoToolPlugin extends MelisTemplatingPlugin
         $render   = [];
         if (!empty($formConfig)) {
             foreach ($formConfig as $formKey => $config) {
-                $request = $this->getServiceLocator()->get('request');
+                $request = $this->getServiceManager()->get('request');
                 $parameters = $request->getQuery()->toArray();
 
                 if (!isset($parameters['validate'])) {
                     $viewModelTab = new ViewModel();
                     $viewModelTab->setTemplate($config['tab_form_layout']);
 
-                    $viewRender = $this->getServiceLocator()->get('ViewRenderer');
+                    $viewRender = $this->getServiceManager()->get('ViewRenderer');
                     $html = $viewRender->render($viewModelTab);
                     array_push($render, [
                             'name' => $config['tab_title'],
