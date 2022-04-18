@@ -29,9 +29,9 @@
 		}
 	},
 	"require": {
-		"php": "^7.1.3|^7.2|^7.3",
-		"melisplatform/melis-platform-frameworks": "*",
-		"melisplatform/melis-platform-framework-symfony": "*",
-		"melisplatform/melis-platform-framework-symfony-demo-tool-logic": "*"
+		"php": "^7.3|^8.0",
+		"melisplatform/melis-platform-frameworks": "^4.0",
+		"melisplatform/melis-platform-framework-symfony": "^4.0",
+		"melisplatform/melis-platform-framework-symfony-demo-tool-logic": "^4.0"
 	}
 }
