@@ -12,6 +12,9 @@ class SymfonyDemoToolController extends MelisAbstractActionController
      */
     public function renderSymfonyDemoToolAction()
     {
+        session_write_close();
+        ini_set('max_execution_time', 0);
+        set_time_limit(0);
         $view = new ViewModel();
         $view->melisKey = $this->getMelisKey();
         $this->getServiceManager()->get('MelisPlatformService')->setRoute('/melis/symfony-list');
