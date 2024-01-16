@@ -32,6 +32,6 @@
 		"php": "^8.1|^8.3",
 		"melisplatform/melis-platform-frameworks": "*",
 		"melisplatform/melis-platform-framework-symfony": "*",
-		"melisplatform/melis-platform-framework-symfony-demo-tool-logic": "dev-update/php83"
+		"melisplatform/melis-platform-framework-symfony-demo-tool-logic": "*"
 	}
 }
