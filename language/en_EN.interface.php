@@ -1,6 +1,6 @@
 <?php
     return array(
-        'tr_melisplatform_framework_symfony_demo_tool_name' => 'Symfony 5 Tool Demo',
+        'tr_melisplatform_framework_symfony_demo_tool_name' => 'Symfony 6 Tool Demo',
         'tr_MelisPlatformFrameworkSymfonyDemoToolPlugin_Name' => 'Symfony Plugin',
         'tr_MelisPlatformFrameworkSymfonyDemoToolPlugin_Description' => 'This plugin displays content requested from Symfony.',
 
